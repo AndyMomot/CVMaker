@@ -9,6 +9,8 @@ import UIKit
 
 class Bacground: UIView {
     
+    static let share = Bacground()
+    
     func setBackground(view: UIView) {
         let gradientBackground = CAGradientLayer()
         

@@ -8,15 +8,16 @@
 import UIKit
 
 class TextFieldSample: UITextField {
+    
+    static let share = TextFieldSample()
 
     func setStyleFor(name: UITextField) {
-        name.font = UIFont.systemFont(ofSize: 16)
-        name.textColor = UIColor.black
-        name.backgroundColor = UIColor.white
-        name.clearButtonMode = UITextField.ViewMode.whileEditing
-        name.layer.borderWidth = 1
-        name.layer.borderColor = UIColor.systemGray.cgColor
+        name.backgroundColor = .white
+        name.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        name.layer.borderWidth = 2
+        name.layer.borderColor = UIColor.init(red: 235/255, green: 235/255, blue: 235/255, alpha: 1).cgColor
         name.layer.cornerRadius = 10
+        name.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }

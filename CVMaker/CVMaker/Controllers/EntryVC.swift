@@ -28,49 +28,27 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     
     let loginTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = .clear
-        textView.text = "Логін"
-        textView.textColor = .white
-        textView.font = UIFont.boldSystemFont(ofSize: 16)
-        textView.textAlignment = .left
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
+        TextViewSemple.share.setStyleFor(name: textView, text: "Логін")
         return textView
     }()
     
     // Login
     let loginTxtFld: UITextField = {
         let textFild = UITextField()
-        textFild.backgroundColor = .white
-        textFild.layer.borderWidth = 2
-        textFild.layer.borderColor = UIColor.init(red: 235/255, green: 235/255, blue: 235/255, alpha: 1).cgColor
-        textFild.layer.cornerRadius = 10
-        textFild.translatesAutoresizingMaskIntoConstraints = false
+        TextFieldSample().setStyleFor(name: textFild)
         return textFild
     }()
     
     let passwordTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = .clear
-        textView.text = "Пароль"
-        textView.textColor = .white
-        textView.font = UIFont.boldSystemFont(ofSize: 16)
-        textView.textAlignment = .left
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
+        TextViewSemple.share.setStyleFor(name: textView, text: "Пароль")
         return textView
     }()
     
     // Password
     let passwordTxtFld: UITextField = {
         let textFild = UITextField()
-        textFild.backgroundColor = .white
-        textFild.layer.borderWidth = 2
-        textFild.layer.borderColor = UIColor.init(red: 235/255, green: 235/255, blue: 235/255, alpha: 1).cgColor
-        textFild.layer.cornerRadius = 10
-        textFild.translatesAutoresizingMaskIntoConstraints = false
+        TextFieldSample().setStyleFor(name: textFild)
         return textFild
     }()
 
@@ -80,7 +58,6 @@ class EntryVC: UIViewController, UITextFieldDelegate {
             UIColor(red: 100/255, green: 152/255, blue: 232/255, alpha: 1).cgColor,
             UIColor(red: 118/255, green: 100/255, blue: 232/255, alpha: 1).cgColor
         ])
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Почати роботу", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
         button.addTarget(self, action: #selector(enterBtnPressed), for: .touchUpInside)
@@ -101,7 +78,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Bacground().setBackground(view: self.view)
+        Bacground.share.setBackground(view: self.view)
         view.addSubview(frame)
         view.addSubview(imageView)
         view.addSubview(loginTextView)
@@ -137,7 +114,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
         loginTxtFld.widthAnchor.constraint(equalToConstant: 300).isActive = true
         loginTxtFld.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
-        passwordTextView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        passwordTextView.widthAnchor.constraint(equalToConstant: 70).isActive = true
         passwordTextView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         passwordTextView.leftAnchor.constraint(equalTo: passwordTxtFld.leftAnchor).isActive = true
         passwordTextView.bottomAnchor.constraint(equalTo: passwordTxtFld.topAnchor, constant: -3).isActive = true
@@ -160,6 +137,9 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     
     @objc func enterBtnPressed() {
         print("Enter ...")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let personalDataVC = storyBoard.instantiateViewController(withIdentifier: "personalDataVC") as! PersonalDataVC
+        self.present(personalDataVC, animated:true, completion:nil)
     }
     
     @objc func registrationBtnTapped() {
