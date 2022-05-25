@@ -11,9 +11,9 @@ class TextViewSemple: UITextView {
 
     static let share = TextViewSemple()
     
-    func setStyleFor(name: UITextView, text: String) {
+    func setStyleFor(name: UITextView, text: String, fontSize: CGFloat) {
         name.text = text
-        name.font = UIFont.boldSystemFont(ofSize: 16)
+        name.font = UIFont.boldSystemFont(ofSize: fontSize)
         name.backgroundColor = .clear
         name.textColor = .white
         name.textAlignment = .left

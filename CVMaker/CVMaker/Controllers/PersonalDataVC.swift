@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import CloudKit
 
 class PersonalDataVC: UIViewController {
-    
+ 
     var scrolView: UIScrollView = {
         var scrolView = UIScrollView()
+        scrolView.showsVerticalScrollIndicator = false
+        scrolView.showsHorizontalScrollIndicator = false
+        scrolView.indicatorStyle = .white
         return scrolView
     }()
     
     var contentView: UIView = {
         let view = UIView()
-        
+        view.layer.cornerRadius = 10
         return view
     }()
     
     // Заголовок
     let headlineTextView: UITextView = {
         let text = UITextView()
-        TextViewSemple.share.setStyleFor(name: text, text: "Особисті данні")
+        TextViewSemple.share.setStyleFor(name: text, text: "Особисті данні", fontSize: 16)
         text.font = UIFont.boldSystemFont(ofSize: 25)
         return text
     }()
@@ -41,7 +45,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода имени
     let nameTextView: UITextView = {
         let name = UITextView()
-        TextViewSemple.share.setStyleFor(name: name, text: "Ім'я")
+        TextViewSemple.share.setStyleFor(name: name, text: "Ім'я", fontSize: 16)
         return name
     }()
     
@@ -54,7 +58,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода фамилии
     let surNameTextView: UITextView = {
         let name = UITextView()
-        TextViewSemple.share.setStyleFor(name: name, text: "Прізвище")
+        TextViewSemple.share.setStyleFor(name: name, text: "Прізвище", fontSize: 16)
         return name
     }()
     
@@ -67,7 +71,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода Эмейла
     let emailTaxtView: UITextView = {
         let emailTaxtV = UITextView()
-        TextViewSemple.share.setStyleFor(name: emailTaxtV, text: "Email")
+        TextViewSemple.share.setStyleFor(name: emailTaxtV, text: "Email", fontSize: 16)
         return emailTaxtV
     }()
     
@@ -80,7 +84,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода номера телефона
     let phoneNumberTaxtView: UITextView = {
         let phoneNumber = UITextView()
-        TextViewSemple.share.setStyleFor(name: phoneNumber, text: "Номер телефону")
+        TextViewSemple.share.setStyleFor(name: phoneNumber, text: "Номер телефону", fontSize: 16)
         return phoneNumber
     }()
     
@@ -93,7 +97,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода почтового индекса
     let postCodeTaxtView: UITextView = {
         let postCode = UITextView()
-        TextViewSemple.share.setStyleFor(name: postCode, text: "Індекс")
+        TextViewSemple.share.setStyleFor(name: postCode, text: "Індекс", fontSize: 16)
         return postCode
     }()
     
@@ -106,7 +110,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода места жительства
     let locationTaxtView: UITextView = {
         let location = UITextView()
-        TextViewSemple.share.setStyleFor(name: location, text: "Місто проживання")
+        TextViewSemple.share.setStyleFor(name: location, text: "Місто проживання", fontSize: 16)
         return location
     }()
     
@@ -138,7 +142,7 @@ class PersonalDataVC: UIViewController {
     
     let dayOfBornTaxtView: UITextView = {
         let dayOfBorn = UITextView()
-        TextViewSemple.share.setStyleFor(name: dayOfBorn, text: "Дата народження")
+        TextViewSemple.share.setStyleFor(name: dayOfBorn, text: "Дата народження", fontSize: 16)
         return dayOfBorn
     }()
     
@@ -156,7 +160,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода национальности
     let nationalityTaxtView: UITextView = {
         let nationality = UITextView()
-        TextViewSemple.share.setStyleFor(name: nationality, text: "Національність")
+        TextViewSemple.share.setStyleFor(name: nationality, text: "Національність", fontSize: 16)
         return nationality
     }()
     
@@ -169,7 +173,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода места рождения
     let placeOfBirthTaxtView: UITextView = {
         let placeOfBirth = UITextView()
-        TextViewSemple.share.setStyleFor(name: placeOfBirth, text: "Місце народження")
+        TextViewSemple.share.setStyleFor(name: placeOfBirth, text: "Місце народження", fontSize: 16)
         return placeOfBirth
     }()
     
@@ -182,7 +186,7 @@ class PersonalDataVC: UIViewController {
     // Блок ввода web-site
     let webSiteTaxtView: UITextView = {
         let webSite = UITextView()
-        TextViewSemple.share.setStyleFor(name: webSite, text: "Веб сайт")
+        TextViewSemple.share.setStyleFor(name: webSite, text: "Веб сайт", fontSize: 16)
         return webSite
     }()
     
@@ -193,13 +197,10 @@ class PersonalDataVC: UIViewController {
     }()
     
     let nextButton: UIButton = {
-        let button = GradientButton(colors: [
-            UIColor(red: 100/255, green: 152/255, blue: 232/255, alpha: 1).cgColor,
-            UIColor(red: 118/255, green: 100/255, blue: 232/255, alpha: 1).cgColor
-        ])
+        let button = GradientButton()
         button.setTitle("Далі", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
-        //button.addTarget(self, action: #selector(func), for: .touchUpInside)
+        button.addTarget(self, action: #selector(nextBtnWasPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -213,97 +214,16 @@ class PersonalDataVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Bacground().setBackground(view: view)
+        BackgroundColor().setBackground(view: view)
         view.addSubview(headlineTextView)
         
         let scrolViewFrame = CGRect(x: 0, y: 116, width: view.frame.size.width, height: view.frame.size.height - 142)
-        let contentViewFrame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 900)
+        let contentViewFrame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 1000)
         
         scrolView = UIScrollView(frame: scrolViewFrame)
         contentView = UIView(frame: contentViewFrame)
-        contentView.layer.cornerRadius = 10
+       
         
-        addViews()
-        
-        view.addSubview(scrolView)
-        setAnchoursForBasicInformation()
-        
-    }
-    
-    
-    
-    private func setAlfaForOverInfo() {
-        self.placeOfBirthTaxtView.alpha = 0
-        self.placeOfBirthTaxtFild.alpha = 0
-        self.dayOfBornPicker.alpha = 0
-        self.dayOfBornTaxtView.alpha = 0
-        self.frameForDatepicker.alpha = 0
-        self.nationalityTaxtView.alpha = 0
-        self.nationalityTaxtFild.alpha = 0
-        self.webSiteTaxtView.alpha = 0
-        self.webSiteTaxtFild.alpha = 0
-    }
-    
-    @objc func chusePhoto() {
-        print("chuse Foto")
-    }
-    
-    @objc func openAdditionalInformation() {
-        
-        if additionalInformationIsOpen {
-            topAnchorForNextBtn?.isActive = true
-            bottomAnchorForNextBtn?.isActive = false
-            
-        } else {
-            topAnchorForNextBtn?.isActive = false
-            bottomAnchorForNextBtn?.isActive = true
-        }
-        
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
-            self.contentView.layoutIfNeeded()
-        }
-
-
-        UIView.animate(withDuration: 0.5) {
-            if self.additionalInformationIsOpen == false {
-                self.plusInfoBtn.setTitle("Додаткова інформація -", for: .normal)
-                self.placeOfBirthTaxtView.alpha = 1.0
-                self.placeOfBirthTaxtFild.alpha = 1.0
-                self.dayOfBornPicker.alpha = 1.0
-                self.dayOfBornTaxtView.alpha = 1.0
-                self.frameForDatepicker.alpha = 1.0
-                self.nationalityTaxtView.alpha = 1.0
-                self.nationalityTaxtFild.alpha = 1.0
-                self.webSiteTaxtView.alpha = 1.0
-                self.webSiteTaxtFild.alpha = 1.0
-               
-                self.additionalInformationIsOpen = true
-                print("now true")
-                
-            } else {
-                self.plusInfoBtn.setTitle("Додаткова інформація +", for: .normal)
-                self.placeOfBirthTaxtView.alpha = 0
-                self.placeOfBirthTaxtFild.alpha = 0
-                self.dayOfBornPicker.alpha = 0
-                self.dayOfBornTaxtView.alpha = 0
-                self.frameForDatepicker.alpha = 0
-                self.nationalityTaxtView.alpha = 0
-                self.nationalityTaxtFild.alpha = 0
-                self.webSiteTaxtView.alpha = 0
-                self.webSiteTaxtFild.alpha = 0
-                
-                self.additionalInformationIsOpen = false
-                print("now false")
-            }
-            
-           
-        }
-    
-    }
-    
-
-    
-    private func addViews() {
         scrolView.addSubview(contentView)
         
         contentView.addSubview(porofileImage)
@@ -346,7 +266,81 @@ class PersonalDataVC: UIViewController {
         setAlfaForOverInfo()
         
         scrolView.contentSize = contentView.bounds.size
+        
+        view.addSubview(scrolView)
+        setAnchoursForBasicInformation()
+        
     }
+    
+    
+    private func setAlfaForOverInfo() {
+        self.placeOfBirthTaxtView.alpha = 0
+        self.placeOfBirthTaxtFild.alpha = 0
+        self.dayOfBornPicker.alpha = 0
+        self.dayOfBornTaxtView.alpha = 0
+        self.frameForDatepicker.alpha = 0
+        self.nationalityTaxtView.alpha = 0
+        self.nationalityTaxtFild.alpha = 0
+        self.webSiteTaxtView.alpha = 0
+        self.webSiteTaxtFild.alpha = 0
+        
+    }
+    
+    @objc func chusePhoto() {
+        print("chuse Foto")
+    }
+    
+    @objc func openAdditionalInformation() {
+        
+        if additionalInformationIsOpen {
+            topAnchorForNextBtn?.isActive = true
+            bottomAnchorForNextBtn?.isActive = false
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+                self.contentView.layoutIfNeeded()
+                
+                self.plusInfoBtn.setTitle("Додаткова інформація +", for: .normal)
+                self.placeOfBirthTaxtView.alpha = 0
+                self.placeOfBirthTaxtFild.alpha = 0
+                self.dayOfBornPicker.alpha = 0
+                self.dayOfBornTaxtView.alpha = 0
+                self.frameForDatepicker.alpha = 0
+                self.nationalityTaxtView.alpha = 0
+                self.nationalityTaxtFild.alpha = 0
+                self.webSiteTaxtView.alpha = 0
+                self.webSiteTaxtFild.alpha = 0
+            }
+            
+            self.additionalInformationIsOpen = false
+            print("now false")
+            
+        } else {
+            topAnchorForNextBtn?.isActive = false
+            bottomAnchorForNextBtn?.isActive = true
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+                self.contentView.layoutIfNeeded()
+                
+                self.plusInfoBtn.setTitle("Додаткова інформація -", for: .normal)
+                self.placeOfBirthTaxtView.alpha = 1.0
+                self.placeOfBirthTaxtFild.alpha = 1.0
+                self.dayOfBornPicker.alpha = 1.0
+                self.dayOfBornTaxtView.alpha = 1.0
+                self.frameForDatepicker.alpha = 1.0
+                self.nationalityTaxtView.alpha = 1.0
+                self.nationalityTaxtFild.alpha = 1.0
+                self.webSiteTaxtView.alpha = 1.0
+                self.webSiteTaxtFild.alpha = 1.0
+            }
+            
+            self.additionalInformationIsOpen = true
+            print("now true")
+        }
+    }
+    
+
+    
+    
     
     func setAnchoursForBasicInformation() {
         
@@ -472,6 +466,14 @@ class PersonalDataVC: UIViewController {
         nextButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         nextButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func nextBtnWasPressed() {
+        let goToSkillsVC = SkillsVC()
+        goToSkillsVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(goToSkillsVC, animated: true)
+        self.present(goToSkillsVC, animated: true, completion: nil)
+        
     }
     
 }

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class Bacground: UIView {
+class BackgroundColor: UIView {
     
-    static let share = Bacground()
+    static let share = BackgroundColor()
     
     func setBackground(view: UIView) {
         let gradientBackground = CAGradientLayer()

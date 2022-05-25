@@ -11,11 +11,14 @@ class GradientButton: UIButton {
     
     let gradient = CAGradientLayer()
     
-    init(colors: [CGColor]) {
+    init() {
         super.init(frame: .zero)
         gradient.frame = bounds
-        gradient.colors = colors
-        gradient.cornerRadius = 20
+        gradient.colors = [
+            UIColor(red: 100/255, green: 152/255, blue: 232/255, alpha: 1).cgColor,
+            UIColor(red: 118/255, green: 100/255, blue: 232/255, alpha: 1).cgColor
+        ]
+        gradient.cornerRadius = 10
         layer.addSublayer(gradient)
     }
     

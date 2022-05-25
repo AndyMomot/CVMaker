@@ -6,8 +6,8 @@
 //
 
 import Foundation
-extension NSObject {
-    class var identifier: String {
-        return String(describing: self)
-    }
-}
+//extension NSObject {
+//    class var identifier: String {
+//        return String(describing: self)
+//    }
+//}

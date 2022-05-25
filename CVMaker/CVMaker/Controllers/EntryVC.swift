@@ -28,7 +28,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     
     let loginTextView: UITextView = {
         let textView = UITextView()
-        TextViewSemple.share.setStyleFor(name: textView, text: "Логін")
+        TextViewSemple.share.setStyleFor(name: textView, text: "Логін", fontSize: 16)
         return textView
     }()
     
@@ -41,7 +41,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     
     let passwordTextView: UITextView = {
         let textView = UITextView()
-        TextViewSemple.share.setStyleFor(name: textView, text: "Пароль")
+        TextViewSemple.share.setStyleFor(name: textView, text: "Пароль", fontSize: 16)
         return textView
     }()
     
@@ -54,10 +54,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
 
     // Enter
     let enterButton: UIButton = {
-        let button = GradientButton(colors: [
-            UIColor(red: 100/255, green: 152/255, blue: 232/255, alpha: 1).cgColor,
-            UIColor(red: 118/255, green: 100/255, blue: 232/255, alpha: 1).cgColor
-        ])
+        let button = GradientButton()
         button.setTitle("Почати роботу", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
         button.addTarget(self, action: #selector(enterBtnPressed), for: .touchUpInside)
@@ -68,7 +65,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     // registration
     let registrationBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("або зариєструватися", for: .normal)
+        button.setTitle("або зареєструватися", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 18)
         button.addTarget(self, action: #selector(registrationBtnTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +75,7 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Bacground.share.setBackground(view: self.view)
+        BackgroundColor.share.setBackground(view: self.view)
         view.addSubview(frame)
         view.addSubview(imageView)
         view.addSubview(loginTextView)
@@ -95,51 +92,56 @@ class EntryVC: UIViewController, UITextFieldDelegate {
     private func setUpAutolayoud() {
         
         frame.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        frame.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-        frame.widthAnchor.constraint(equalToConstant: 286).isActive = true
-        frame.heightAnchor.constraint(equalToConstant: 339).isActive = true
+        frame.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        frame.widthAnchor.constraint(equalToConstant: 232).isActive = true
+        frame.heightAnchor.constraint(equalToConstant: 275).isActive = true
         
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         imageView.topAnchor.constraint(equalTo: frame.topAnchor, constant: 33).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 286).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 270).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: frame.bottomAnchor, constant: -33).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: frame.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: frame.trailingAnchor).isActive = true
         
+        
+        loginTextView.topAnchor.constraint(equalTo: frame.bottomAnchor, constant: 20).isActive = true
+        loginTextView.leftAnchor.constraint(equalTo: loginTxtFld.leftAnchor).isActive = true
         loginTextView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         loginTextView.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        loginTextView.leftAnchor.constraint(equalTo: loginTxtFld.leftAnchor).isActive = true
-        loginTextView.bottomAnchor.constraint(equalTo: loginTxtFld.topAnchor, constant: -3).isActive = true
         
+        loginTxtFld.topAnchor.constraint(equalTo: loginTextView.bottomAnchor, constant: 3).isActive = true
         loginTxtFld.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginTxtFld.topAnchor.constraint(equalTo: frame.bottomAnchor, constant: 45).isActive = true
         loginTxtFld.widthAnchor.constraint(equalToConstant: 300).isActive = true
         loginTxtFld.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
+        passwordTextView.topAnchor.constraint(equalTo: loginTxtFld.bottomAnchor, constant: 20).isActive = true
+        passwordTextView.leftAnchor.constraint(equalTo: passwordTxtFld.leftAnchor).isActive = true
         passwordTextView.widthAnchor.constraint(equalToConstant: 70).isActive = true
         passwordTextView.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        passwordTextView.leftAnchor.constraint(equalTo: passwordTxtFld.leftAnchor).isActive = true
-        passwordTextView.bottomAnchor.constraint(equalTo: passwordTxtFld.topAnchor, constant: -3).isActive = true
         
+        passwordTxtFld.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 3).isActive = true
         passwordTxtFld.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        passwordTxtFld.topAnchor.constraint(equalTo: loginTxtFld.bottomAnchor, constant: 50).isActive = true
         passwordTxtFld.widthAnchor.constraint(equalToConstant: 300).isActive = true
         passwordTxtFld.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
         enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         enterButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
         enterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        enterButton.bottomAnchor.constraint(equalTo: registrationBtn.bottomAnchor, constant: -50).isActive = true
+        enterButton.bottomAnchor.constraint(equalTo: registrationBtn.topAnchor, constant: -10).isActive = true
         
         registrationBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         registrationBtn.widthAnchor.constraint(equalToConstant: 300).isActive = true
         registrationBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        registrationBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        registrationBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     @objc func enterBtnPressed() {
         print("Enter ...")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let personalDataVC = storyBoard.instantiateViewController(withIdentifier: "personalDataVC") as! PersonalDataVC
-        self.present(personalDataVC, animated:true, completion:nil)
+        
+        let goToPersonalDataVC = PersonalDataVC()
+        goToPersonalDataVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(goToPersonalDataVC, animated: true)
+        self.present(goToPersonalDataVC, animated:true, completion:nil)
+        
     }
     
     @objc func registrationBtnTapped() {

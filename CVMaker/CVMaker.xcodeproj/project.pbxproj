@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7789BFBE2824320E00A8A85C /* Bacground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBD2824320E00A8A85C /* Bacground.swift */; };
+		771DCF33283545B300F891FF /* SkillsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DCF32283545B300F891FF /* SkillsVC.swift */; };
+		77580CF5283BBD2A004E7363 /* SetStyleForTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */; };
+		7789BFBE2824320E00A8A85C /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBD2824320E00A8A85C /* BackgroundColor.swift */; };
 		7789BFC02824361800A8A85C /* TextFieldSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBF2824361800A8A85C /* TextFieldSample.swift */; };
 		77933AA0282D3876000C9424 /* ClassExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77933A9F282D3876000C9424 /* ClassExtension.swift */; };
 		77DFA4CC2823B6970085D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFA4CB2823B6970085D97C /* AppDelegate.swift */; };
@@ -23,7 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7789BFBD2824320E00A8A85C /* Bacground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bacground.swift; sourceTree = "<group>"; };
+		771DCF32283545B300F891FF /* SkillsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsVC.swift; sourceTree = "<group>"; };
+		77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStyleForTextView.swift; sourceTree = "<group>"; };
+		7789BFBD2824320E00A8A85C /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		7789BFBF2824361800A8A85C /* TextFieldSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSample.swift; sourceTree = "<group>"; };
 		77933A9F282D3876000C9424 /* ClassExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtension.swift; sourceTree = "<group>"; };
 		77DFA4C82823B6970085D97C /* CVMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +101,7 @@
 			children = (
 				77DFA4CF2823B6970085D97C /* EntryVC.swift */,
 				77F696EB2827E0BB007F5FA7 /* PersonalDataVC.swift */,
+				771DCF32283545B300F891FF /* SkillsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,9 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				77DFA4E42823E3640085D97C /* GradientButton.swift */,
-				7789BFBD2824320E00A8A85C /* Bacground.swift */,
+				7789BFBD2824320E00A8A85C /* BackgroundColor.swift */,
 				7789BFBF2824361800A8A85C /* TextFieldSample.swift */,
 				77F696ED2827F310007F5FA7 /* TextViewSemple.swift */,
+				77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,12 +192,14 @@
 				77F696EE2827F310007F5FA7 /* TextViewSemple.swift in Sources */,
 				77DFA4E52823E3640085D97C /* GradientButton.swift in Sources */,
 				77933AA0282D3876000C9424 /* ClassExtension.swift in Sources */,
-				7789BFBE2824320E00A8A85C /* Bacground.swift in Sources */,
+				7789BFBE2824320E00A8A85C /* BackgroundColor.swift in Sources */,
 				77DFA4D02823B6970085D97C /* EntryVC.swift in Sources */,
 				77DFA4D62823B6970085D97C /* CVMaker.xcdatamodeld in Sources */,
 				77DFA4CC2823B6970085D97C /* AppDelegate.swift in Sources */,
 				7789BFC02824361800A8A85C /* TextFieldSample.swift in Sources */,
+				77580CF5283BBD2A004E7363 /* SetStyleForTextView.swift in Sources */,
 				77F696EC2827E0BB007F5FA7 /* PersonalDataVC.swift in Sources */,
+				771DCF33283545B300F891FF /* SkillsVC.swift in Sources */,
 				77DFA4CE2823B6970085D97C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
