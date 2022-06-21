@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		771DCF33283545B300F891FF /* SkillsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DCF32283545B300F891FF /* SkillsVC.swift */; };
+		773DB7BA2862179900CEEB21 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DB7B92862179900CEEB21 /* DetailsVC.swift */; };
 		77580CF5283BBD2A004E7363 /* SetStyleForTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */; };
 		7789BFBE2824320E00A8A85C /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBD2824320E00A8A85C /* BackgroundColor.swift */; };
 		7789BFC02824361800A8A85C /* TextFieldSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBF2824361800A8A85C /* TextFieldSample.swift */; };
-		77933AA0282D3876000C9424 /* ClassExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77933A9F282D3876000C9424 /* ClassExtension.swift */; };
+		77BB65C2284236870059CC14 /* ExamplesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB65C1284236870059CC14 /* ExamplesVC.swift */; };
+		77BB65C9284245E30059CC14 /* CvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB65C7284245E30059CC14 /* CvCell.swift */; };
+		77BB65CA284245E30059CC14 /* CvCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BB65C8284245E30059CC14 /* CvCell.xib */; };
+		77BB65CD284253420059CC14 /* Resorses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB65CC284253420059CC14 /* Resorses.swift */; };
+		77BB65D0284257BA0059CC14 /* Resumes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB65CF284257BA0059CC14 /* Resumes.swift */; };
 		77DFA4CC2823B6970085D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFA4CB2823B6970085D97C /* AppDelegate.swift */; };
 		77DFA4CE2823B6970085D97C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFA4CD2823B6970085D97C /* SceneDelegate.swift */; };
 		77DFA4D02823B6970085D97C /* EntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFA4CF2823B6970085D97C /* EntryVC.swift */; };
@@ -26,10 +31,15 @@
 
 /* Begin PBXFileReference section */
 		771DCF32283545B300F891FF /* SkillsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsVC.swift; sourceTree = "<group>"; };
+		773DB7B92862179900CEEB21 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStyleForTextView.swift; sourceTree = "<group>"; };
 		7789BFBD2824320E00A8A85C /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		7789BFBF2824361800A8A85C /* TextFieldSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSample.swift; sourceTree = "<group>"; };
-		77933A9F282D3876000C9424 /* ClassExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtension.swift; sourceTree = "<group>"; };
+		77BB65C1284236870059CC14 /* ExamplesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesVC.swift; sourceTree = "<group>"; };
+		77BB65C7284245E30059CC14 /* CvCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvCell.swift; sourceTree = "<group>"; };
+		77BB65C8284245E30059CC14 /* CvCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CvCell.xib; sourceTree = "<group>"; };
+		77BB65CC284253420059CC14 /* Resorses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resorses.swift; sourceTree = "<group>"; };
+		77BB65CF284257BA0059CC14 /* Resumes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resumes.swift; sourceTree = "<group>"; };
 		77DFA4C82823B6970085D97C /* CVMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DFA4CB2823B6970085D97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DFA4CD2823B6970085D97C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,12 +65,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		77933A9E282D384E000C9424 /* Extensions */ = {
+		77BB65C32842452C0059CC14 /* Semples */ = {
 			isa = PBXGroup;
 			children = (
-				77933A9F282D3876000C9424 /* ClassExtension.swift */,
+				7789BFBF2824361800A8A85C /* TextFieldSample.swift */,
+				77F696ED2827F310007F5FA7 /* TextViewSemple.swift */,
+				77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */,
 			);
-			path = Extensions;
+			path = Semples;
+			sourceTree = "<group>";
+		};
+		77BB65C4284245580059CC14 /* ColorStyle */ = {
+			isa = PBXGroup;
+			children = (
+				77DFA4E42823E3640085D97C /* GradientButton.swift */,
+				7789BFBD2824320E00A8A85C /* BackgroundColor.swift */,
+			);
+			path = ColorStyle;
+			sourceTree = "<group>";
+		};
+		77BB65C6284245810059CC14 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77BB65C7284245E30059CC14 /* CvCell.swift */,
+				77BB65C8284245E30059CC14 /* CvCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		77BB65CB2842530A0059CC14 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				77BB65CC284253420059CC14 /* Resorses.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		77BB65CE284257960059CC14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77BB65CF284257BA0059CC14 /* Resumes.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		77DFA4BF2823B6970085D97C = {
@@ -82,9 +128,10 @@
 		77DFA4CA2823B6970085D97C /* CVMaker */ = {
 			isa = PBXGroup;
 			children = (
-				77933A9E282D384E000C9424 /* Extensions */,
 				77DFA4CB2823B6970085D97C /* AppDelegate.swift */,
 				77DFA4CD2823B6970085D97C /* SceneDelegate.swift */,
+				77BB65CB2842530A0059CC14 /* Services */,
+				77BB65CE284257960059CC14 /* Model */,
 				77DFA4E32823E3330085D97C /* View */,
 				77DFA4E22823C4870085D97C /* Controllers */,
 				77DFA4D12823B6970085D97C /* Main.storyboard */,
@@ -102,6 +149,8 @@
 				77DFA4CF2823B6970085D97C /* EntryVC.swift */,
 				77F696EB2827E0BB007F5FA7 /* PersonalDataVC.swift */,
 				771DCF32283545B300F891FF /* SkillsVC.swift */,
+				77BB65C1284236870059CC14 /* ExamplesVC.swift */,
+				773DB7B92862179900CEEB21 /* DetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -109,11 +158,9 @@
 		77DFA4E32823E3330085D97C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				77DFA4E42823E3640085D97C /* GradientButton.swift */,
-				7789BFBD2824320E00A8A85C /* BackgroundColor.swift */,
-				7789BFBF2824361800A8A85C /* TextFieldSample.swift */,
-				77F696ED2827F310007F5FA7 /* TextViewSemple.swift */,
-				77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */,
+				77BB65C6284245810059CC14 /* Cells */,
+				77BB65C32842452C0059CC14 /* Semples */,
+				77BB65C4284245580059CC14 /* ColorStyle */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BB65CA284245E30059CC14 /* CvCell.xib in Resources */,
 				77DFA4DB2823B6980085D97C /* LaunchScreen.storyboard in Resources */,
 				77DFA4D82823B6980085D97C /* Assets.xcassets in Resources */,
 				77DFA4D32823B6970085D97C /* Main.storyboard in Resources */,
@@ -191,11 +239,15 @@
 			files = (
 				77F696EE2827F310007F5FA7 /* TextViewSemple.swift in Sources */,
 				77DFA4E52823E3640085D97C /* GradientButton.swift in Sources */,
-				77933AA0282D3876000C9424 /* ClassExtension.swift in Sources */,
 				7789BFBE2824320E00A8A85C /* BackgroundColor.swift in Sources */,
 				77DFA4D02823B6970085D97C /* EntryVC.swift in Sources */,
 				77DFA4D62823B6970085D97C /* CVMaker.xcdatamodeld in Sources */,
+				77BB65C2284236870059CC14 /* ExamplesVC.swift in Sources */,
+				77BB65D0284257BA0059CC14 /* Resumes.swift in Sources */,
 				77DFA4CC2823B6970085D97C /* AppDelegate.swift in Sources */,
+				77BB65CD284253420059CC14 /* Resorses.swift in Sources */,
+				773DB7BA2862179900CEEB21 /* DetailsVC.swift in Sources */,
+				77BB65C9284245E30059CC14 /* CvCell.swift in Sources */,
 				7789BFC02824361800A8A85C /* TextFieldSample.swift in Sources */,
 				77580CF5283BBD2A004E7363 /* SetStyleForTextView.swift in Sources */,
 				77F696EC2827E0BB007F5FA7 /* PersonalDataVC.swift in Sources */,

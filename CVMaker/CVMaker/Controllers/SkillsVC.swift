@@ -213,7 +213,7 @@ class SkillsVC: UIViewController {
     private func setAnchors() {
         [
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 42),
             backButton.heightAnchor.constraint(equalToConstant: 42)
         ].forEach({$0.isActive = true})
@@ -371,6 +371,10 @@ class SkillsVC: UIViewController {
     
     @objc func nextBtnWasPressed() {
         print("tap")
+        let goToExamplesVC = ExamplesVC()
+        goToExamplesVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(goToExamplesVC, animated: true)
+        present(goToExamplesVC, animated: true, completion: nil)
     }
 
 }
