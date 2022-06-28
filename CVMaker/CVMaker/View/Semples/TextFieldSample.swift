@@ -12,6 +12,8 @@ class TextFieldSample: UITextField {
     static let share = TextFieldSample()
 
     func setStyleFor(name: UITextField) {
+        name.textColor = .black
+        name.returnKeyType = .done
         name.backgroundColor = .white
         name.heightAnchor.constraint(equalToConstant: 35).isActive = true
         name.layer.borderWidth = 2

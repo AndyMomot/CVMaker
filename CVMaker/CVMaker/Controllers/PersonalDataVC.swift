@@ -7,6 +7,7 @@
 
 import UIKit
 import CloudKit
+import Firebase
 
 class PersonalDataVC: UIViewController {
  
@@ -30,6 +31,15 @@ class PersonalDataVC: UIViewController {
         TextViewSemple.share.setStyleFor(name: text, text: "Особисті данні", fontSize: 16)
         text.font = UIFont.boldSystemFont(ofSize: 25)
         return text
+    }()
+    
+    let logOutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Вийти", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 25)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        return button
     }()
     
     // Фото Профиля
@@ -216,6 +226,7 @@ class PersonalDataVC: UIViewController {
         
         BackgroundColor().setBackground(view: view)
         view.addSubview(headlineTextView)
+        view.addSubview(logOutButton)
         
         let scrolViewFrame = CGRect(x: 0, y: 116, width: view.frame.size.width, height: view.frame.size.height - 142)
         let contentViewFrame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 1000)
@@ -285,69 +296,16 @@ class PersonalDataVC: UIViewController {
         self.webSiteTaxtFild.alpha = 0
         
     }
-    
-    @objc func chusePhoto() {
-        print("chuse Foto")
-    }
-    
-    @objc func openAdditionalInformation() {
-        
-        if additionalInformationIsOpen {
-            topAnchorForNextBtn?.isActive = true
-            bottomAnchorForNextBtn?.isActive = false
-            
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
-                self.contentView.layoutIfNeeded()
-                
-                self.plusInfoBtn.setTitle("Додаткова інформація +", for: .normal)
-                self.placeOfBirthTaxtView.alpha = 0
-                self.placeOfBirthTaxtFild.alpha = 0
-                self.dayOfBornPicker.alpha = 0
-                self.dayOfBornTaxtView.alpha = 0
-                self.frameForDatepicker.alpha = 0
-                self.nationalityTaxtView.alpha = 0
-                self.nationalityTaxtFild.alpha = 0
-                self.webSiteTaxtView.alpha = 0
-                self.webSiteTaxtFild.alpha = 0
-            }
-            
-            self.additionalInformationIsOpen = false
-            print("now false")
-            
-        } else {
-            topAnchorForNextBtn?.isActive = false
-            bottomAnchorForNextBtn?.isActive = true
-            
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
-                self.contentView.layoutIfNeeded()
-                
-                self.plusInfoBtn.setTitle("Додаткова інформація -", for: .normal)
-                self.placeOfBirthTaxtView.alpha = 1.0
-                self.placeOfBirthTaxtFild.alpha = 1.0
-                self.dayOfBornPicker.alpha = 1.0
-                self.dayOfBornTaxtView.alpha = 1.0
-                self.frameForDatepicker.alpha = 1.0
-                self.nationalityTaxtView.alpha = 1.0
-                self.nationalityTaxtFild.alpha = 1.0
-                self.webSiteTaxtView.alpha = 1.0
-                self.webSiteTaxtFild.alpha = 1.0
-            }
-            
-            self.additionalInformationIsOpen = true
-            print("now true")
-        }
-    }
-    
 
-    
-    
-    
     func setAnchoursForBasicInformation() {
         
         headlineTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 48).isActive = true
         headlineTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headlineTextView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         headlineTextView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        
+        logOutButton.topAnchor.constraint(equalTo: headlineTextView.topAnchor).isActive = true
+        logOutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         
         porofileImage.translatesAutoresizingMaskIntoConstraints = false
         porofileImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -466,6 +424,64 @@ class PersonalDataVC: UIViewController {
         nextButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         nextButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            printContent(error)
+        }
+    }
+    
+    @objc func chusePhoto() {
+        print("chuse Foto")
+    }
+    
+    @objc func openAdditionalInformation() {
+        
+        if additionalInformationIsOpen {
+            topAnchorForNextBtn?.isActive = true
+            bottomAnchorForNextBtn?.isActive = false
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+                self.contentView.layoutIfNeeded()
+                
+                self.plusInfoBtn.setTitle("Додаткова інформація +", for: .normal)
+                self.placeOfBirthTaxtView.alpha = 0
+                self.placeOfBirthTaxtFild.alpha = 0
+                self.dayOfBornPicker.alpha = 0
+                self.dayOfBornTaxtView.alpha = 0
+                self.frameForDatepicker.alpha = 0
+                self.nationalityTaxtView.alpha = 0
+                self.nationalityTaxtFild.alpha = 0
+                self.webSiteTaxtView.alpha = 0
+                self.webSiteTaxtFild.alpha = 0
+            }
+            
+            self.additionalInformationIsOpen = false
+            
+        } else {
+            topAnchorForNextBtn?.isActive = false
+            bottomAnchorForNextBtn?.isActive = true
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+                self.contentView.layoutIfNeeded()
+                
+                self.plusInfoBtn.setTitle("Додаткова інформація -", for: .normal)
+                self.placeOfBirthTaxtView.alpha = 1.0
+                self.placeOfBirthTaxtFild.alpha = 1.0
+                self.dayOfBornPicker.alpha = 1.0
+                self.dayOfBornTaxtView.alpha = 1.0
+                self.frameForDatepicker.alpha = 1.0
+                self.nationalityTaxtView.alpha = 1.0
+                self.nationalityTaxtFild.alpha = 1.0
+                self.webSiteTaxtView.alpha = 1.0
+                self.webSiteTaxtFild.alpha = 1.0
+            }
+            
+            self.additionalInformationIsOpen = true
+        }
     }
     
     @objc func nextBtnWasPressed() {

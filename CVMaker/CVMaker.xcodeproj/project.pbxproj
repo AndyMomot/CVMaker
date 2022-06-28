@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		771DCF33283545B300F891FF /* SkillsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DCF32283545B300F891FF /* SkillsVC.swift */; };
 		773DB7BA2862179900CEEB21 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DB7B92862179900CEEB21 /* DetailsVC.swift */; };
+		77560FEB286B7C8000212E26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77560FEA286B7C8000212E26 /* GoogleService-Info.plist */; };
 		77580CF5283BBD2A004E7363 /* SetStyleForTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */; };
 		7789BFBE2824320E00A8A85C /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBD2824320E00A8A85C /* BackgroundColor.swift */; };
 		7789BFC02824361800A8A85C /* TextFieldSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789BFBF2824361800A8A85C /* TextFieldSample.swift */; };
@@ -27,11 +28,13 @@
 		77DFA4E52823E3640085D97C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFA4E42823E3640085D97C /* GradientButton.swift */; };
 		77F696EC2827E0BB007F5FA7 /* PersonalDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F696EB2827E0BB007F5FA7 /* PersonalDataVC.swift */; };
 		77F696EE2827F310007F5FA7 /* TextViewSemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F696ED2827F310007F5FA7 /* TextViewSemple.swift */; };
+		C30136D9B4E220CBD1620EB1 /* Pods_CVMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C850E74E644F4245314E2BFA /* Pods_CVMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		771DCF32283545B300F891FF /* SkillsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsVC.swift; sourceTree = "<group>"; };
 		773DB7B92862179900CEEB21 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		77560FEA286B7C8000212E26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77580CF4283BBD2A004E7363 /* SetStyleForTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStyleForTextView.swift; sourceTree = "<group>"; };
 		7789BFBD2824320E00A8A85C /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		7789BFBF2824361800A8A85C /* TextFieldSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSample.swift; sourceTree = "<group>"; };
@@ -52,6 +55,9 @@
 		77DFA4E42823E3640085D97C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		77F696EB2827E0BB007F5FA7 /* PersonalDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataVC.swift; sourceTree = "<group>"; };
 		77F696ED2827F310007F5FA7 /* TextViewSemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewSemple.swift; sourceTree = "<group>"; };
+		B6AAA3F0B9FE4263E69D3167 /* Pods-CVMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMaker.release.xcconfig"; path = "Target Support Files/Pods-CVMaker/Pods-CVMaker.release.xcconfig"; sourceTree = "<group>"; };
+		C850E74E644F4245314E2BFA /* Pods_CVMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CVMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6CDB5F954CD2F9891B1BC1 /* Pods-CVMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMaker.debug.xcconfig"; path = "Target Support Files/Pods-CVMaker/Pods-CVMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +65,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30136D9B4E220CBD1620EB1 /* Pods_CVMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52AE3AFF4288D26CB234D6B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE6CDB5F954CD2F9891B1BC1 /* Pods-CVMaker.debug.xcconfig */,
+				B6AAA3F0B9FE4263E69D3167 /* Pods-CVMaker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		77BB65C32842452C0059CC14 /* Semples */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +130,8 @@
 			children = (
 				77DFA4CA2823B6970085D97C /* CVMaker */,
 				77DFA4C92823B6970085D97C /* Products */,
+				52AE3AFF4288D26CB234D6B4 /* Pods */,
+				9258CE45319AF8EB04A930BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +156,7 @@
 				77DFA4D72823B6980085D97C /* Assets.xcassets */,
 				77DFA4D92823B6980085D97C /* LaunchScreen.storyboard */,
 				77DFA4DC2823B6980085D97C /* Info.plist */,
+				77560FEA286B7C8000212E26 /* GoogleService-Info.plist */,
 				77DFA4D42823B6970085D97C /* CVMaker.xcdatamodeld */,
 			);
 			path = CVMaker;
@@ -165,6 +184,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9258CE45319AF8EB04A930BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C850E74E644F4245314E2BFA /* Pods_CVMaker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77DFA4DF2823B6980085D97C /* Build configuration list for PBXNativeTarget "CVMaker" */;
 			buildPhases = (
+				380CB9681DBB5D1DA2605278 /* [CP] Check Pods Manifest.lock */,
 				77DFA4C42823B6970085D97C /* Sources */,
 				77DFA4C52823B6970085D97C /* Frameworks */,
 				77DFA4C62823B6970085D97C /* Resources */,
+				7EE776813DBCA324D59FC874 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,12 +254,55 @@
 			files = (
 				77BB65CA284245E30059CC14 /* CvCell.xib in Resources */,
 				77DFA4DB2823B6980085D97C /* LaunchScreen.storyboard in Resources */,
+				77560FEB286B7C8000212E26 /* GoogleService-Info.plist in Resources */,
 				77DFA4D82823B6980085D97C /* Assets.xcassets in Resources */,
 				77DFA4D32823B6970085D97C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		380CB9681DBB5D1DA2605278 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CVMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EE776813DBCA324D59FC874 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMaker/Pods-CVMaker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMaker/Pods-CVMaker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMaker/Pods-CVMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77DFA4C42823B6970085D97C /* Sources */ = {
@@ -396,6 +468,7 @@
 		};
 		77DFA4E02823B6980085D97C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6CDB5F954CD2F9891B1BC1 /* Pods-CVMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,6 +497,7 @@
 		};
 		77DFA4E12823B6980085D97C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6AAA3F0B9FE4263E69D3167 /* Pods-CVMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
