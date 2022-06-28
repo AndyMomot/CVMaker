@@ -87,78 +87,75 @@ class ExamplesVC: UIViewController {
     }
 }
 
+
+// MARK: extension
+
 extension ExamplesVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 507
+        return view.frame.size.height * 0.5
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else {return}
         
-//        let cell = tableView.cellForRow(at: indexPath)
-//
-//        if let index = selectedIndexPaths.firstIndex(of: indexPath) { //deselect it if the row is selected
-//                tableView.deselectRow(at: indexPath, animated: true)
-//                cell?.backgroundColor = .clear
-//                selectedIndexPaths.remove(at: index)
-//            }
-//            else{ //select it if the row is deselected
-//                cell?.backgroundColor = .yellow
-//                selectedIndexPaths.append(indexPath)
-//            }
+        let goToDetailsVC = DetailsVC()
+        let alertController = UIAlertController(title: "Стиль", message: "", preferredStyle: .alert)
         
-        if let cell = tableView.cellForRow(at: indexPath){
-           
-            let goToDetailsVC = DetailsVC()
-
-            switch indexPath {
-            case [0, 0]:
-
-                UIView.animate(withDuration: 0.3) {
-                    cell.backgroundColor = .blue
-                    cell.backgroundColor = .clear
-                }
-
-                goToDetailsVC.testView.backgroundColor = .red
-                goToDetailsVC.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(goToDetailsVC, animated: true)
-                if isSelected == true {
-                    self.present(goToDetailsVC, animated: true, completion: nil)
-                }
-                isSelected = true
-
-            case [0, 1]:
-
-                UIView.animate(withDuration: 0.3) {
-                    cell.backgroundColor = .blue
-                    cell.backgroundColor = .clear
-                }
-
-                goToDetailsVC.testView.backgroundColor = .white
-                goToDetailsVC.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(goToDetailsVC, animated: true)
-                if isSelectedSecond == true {
-                    self.present(goToDetailsVC, animated: true, completion: nil)
-                }
-                isSelectedSecond = true
-
-            case [0, 2]:
-
-                UIView.animate(withDuration: 0.3) {
-                    cell.backgroundColor = .blue
-                    cell.backgroundColor = .clear
-                }
-
-                goToDetailsVC.testView.backgroundColor = .blue
-                goToDetailsVC.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(goToDetailsVC, animated: true)
-                if isSelectedThird == true {
-                    self.present(goToDetailsVC, animated: true, completion: nil)
-                }
-                isSelectedThird = true
-            default:
-               return
+        
+        let acrion = UIAlertAction(title: "Так", style: .default) { (action) in
+            self.present(goToDetailsVC, animated: true, completion: nil)
+        }
+        
+        let cancel = UIAlertAction(title: "Hi", style: .cancel) { (cancel) in
+            UIView.animate(withDuration: 0.3) {
+                cell.backgroundColor = .blue
+                cell.backgroundColor = .clear
             }
+        }
+        
+        alertController.addAction(acrion)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        func animation() {
+            UIView.animate(withDuration: 1) {
+                cell.backgroundColor = .blue
+                cell.backgroundColor = .clear
+            }
+        }
+        
+        switch indexPath {
+            
+        case [0, 0]:
+            alertController.message = "Обрати стиль 'Перший'?"
+           
+            animation()
+            goToDetailsVC.label.text = "Перший"
+            goToDetailsVC.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(goToDetailsVC, animated: true)
+            
+
+
+        case [0, 1]:
+            alertController.message = "Обрати стиль 'Другий'?"
+            
+            animation()
+            goToDetailsVC.label.text = "Другий"
+            goToDetailsVC.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(goToDetailsVC, animated: true)
+
+        case [0, 2]:
+            alertController.message = "Обрати стиль 'Третій'?"
+            
+            animation()
+            goToDetailsVC.label.text = "Третій"
+            goToDetailsVC.image.image = UIImage(named: "cv")
+            goToDetailsVC.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(goToDetailsVC, animated: true)
+        default:
+           return
         }
     }
 }
@@ -169,20 +166,15 @@ extension ExamplesVC: UITableViewDataSource {
         return Resources.share.getImage().count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CvCell {
             
-            let widthForBackView = tableView.frame.size.width - 80
-            let frameForBackView = CGRect(x: 20, y: 0, width: widthForBackView, height: widthForBackView * 1.04)
-            
             let resume = Resources.share.getImage()[indexPath.row]
             cell.updateViews(resume: resume)
-            cell.backView.frame = frameForBackView
             cell.backView.backgroundColor = UIColor.clear
-           
-
+            cell.cvImage.backgroundColor = .clear
             return cell
+            
         } else {
             return CvCell()
         }
